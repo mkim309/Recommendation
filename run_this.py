@@ -1,9 +1,9 @@
 import scipy.io
 import time
-from myRecommender import my_recommender
+from recommender import recommender
 import numpy as np
 
-
+#measure rmse
 def rmse(u, v, mat):
     mask = mat > 0
     res = np.sum(((u.dot(v.T) - mat) * mask) ** 2) / float(np.sum(mask))
@@ -18,7 +18,7 @@ low_rank_ls = [1, 3, 5]
 for lr in low_rank_ls:
     for reg_flag in [False, True]:
         st = time.time()
-        U, V = my_recommender(rate_mat, lr, reg_flag)
+        U, V = recommender(rate_mat, lr, reg_flag)
 
         t = time.time() - st
 
