@@ -1,16 +1,9 @@
 import numpy as np
 
 def recommender(rate_mat, lr, with_reg):
-    """
+    
 
-    :param rate_mat:
-    :param lr:
-    :param with_reg:
-        boolean flag, set true for using regularization and false otherwise
-    :return:
-    """
-
-    # TODO pick hyperparams
+    # hyperparams
     max_iter = 200
     learning_rate = 0.0004
     reg_coef = 0
@@ -19,7 +12,7 @@ def recommender(rate_mat, lr, with_reg):
     U = np.random.rand(n_user, lr) / lr
     V = np.random.rand(n_item, lr) / lr
 
-    # TODO implement your code here
+    # iteration
     if with_reg:
         reg_coef = 0.6
         for i in range(max_iter):
